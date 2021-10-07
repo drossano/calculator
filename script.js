@@ -14,3 +14,21 @@ function operate (operator,a,b) {
         return divide(a,b);
     }
 }
+
+function enterNumber () {
+    let number = "";
+    const numberButtons = document.querySelectorAll('.number');
+    numberButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            number += button.id;
+            return populateDisplay(number);
+        });
+    });
+}
+
+function populateDisplay (number) {
+    const display = document.querySelector('#display');
+    display.textContent = number;
+}
+
+enterNumber();
