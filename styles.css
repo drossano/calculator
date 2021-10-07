@@ -4,6 +4,13 @@
     width: 400px;
     
 }
+#display {
+    height: 100px;
+    background: rgb(197, 236, 197);
+    font-size: 80px;
+    text-align: right;
+    line-height: 100px;
+}
 
 #buttons {
     height: 400px;
