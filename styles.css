@@ -1,3 +1,8 @@
+@font-face {
+    font-family: cursedTimer;
+    src: url(fonts/CursedTimerUlil-Aznm.ttf);
+}
+
 #calculator {
     display: flex;
     flex-direction: column;
@@ -5,6 +10,7 @@
     
 }
 #display {
+    font-family: cursedTimer;
     height: 100px;
     background: rgb(197, 236, 197);
     font-size: 80px;
