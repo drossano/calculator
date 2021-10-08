@@ -15,20 +15,45 @@ function operate (operator,a,b) {
     }
 }
 
+function pressButton () {
+    const button = document.querySelectorAll('button');
+    button.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (button.class == number){
+                return enterNumber()
+            }
+        })
+    })
+}
+
 function enterNumber () {
-    let number = "";
+    let number = ""
     const numberButtons = document.querySelectorAll('.number');
     numberButtons.forEach((button) => {
         button.addEventListener('click', () => {
             number += button.id;
             return populateDisplay(number);
         });
-    });
+    }); 
 }
 
 function populateDisplay (number) {
     const display = document.querySelector('#display');
     display.textContent = number;
+    return pressOperator(number);
+}
+
+
+function pressOperator (number) {
+    const operatorButtons = document.querySelectorAll('.operator');
+    operatorButtons.forEach((button) =>{
+        button.addEventListener('click', () =>{
+            operation = {
+                operator: button.id,
+                arg1: number,
+            }
+        })
+    });
 }
 
 enterNumber();
