@@ -51,7 +51,7 @@ function pressButton () {
                 if (operator != undefined) {    
                     let answer = operate(operator,argument1,number); 
                     argument1 = answer;
-                    number = ""
+                    number = answer;
                     operator = undefined;
                     return populateDisplay(answer);
                 } else {

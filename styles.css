@@ -48,6 +48,11 @@ button:hover, #add:hover, #subtract:hover, #multiply:hover, #divide:hover, #clea
     cursor: pointer;
 }
 
+button:active, #add:active, #subtract:active, #multiply:active, #divide:active, #clear:active, #backspace:active{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0 0);
+    cursor: pointer;
+}
+
 #add {
  background: #eb1a1d;
 }
