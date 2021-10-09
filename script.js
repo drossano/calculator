@@ -16,25 +16,18 @@ function operate (operator,a,b) {
 }
 
 function pressButton () {
+    let number = ""
     const button = document.querySelectorAll('button');
     button.forEach((button) => {
         button.addEventListener('click', () => {
-            if (button.class == number){
-                return enterNumber()
+            if (button.className == 'number'){
+                number += button.id
+                return populateDisplay(number);
+            } else if (button.className == 'operator'){
+                return pressOperator(number);
             }
         })
     })
-}
-
-function enterNumber () {
-    let number = ""
-    const numberButtons = document.querySelectorAll('.number');
-    numberButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            number += button.id;
-            return populateDisplay(number);
-        });
-    }); 
 }
 
 function populateDisplay (number) {
@@ -42,7 +35,6 @@ function populateDisplay (number) {
     display.textContent = number;
     return pressOperator(number);
 }
-
 
 function pressOperator (number) {
     const operatorButtons = document.querySelectorAll('.operator');
@@ -56,4 +48,4 @@ function pressOperator (number) {
     });
 }
 
-enterNumber();
+pressButton();
