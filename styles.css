@@ -43,7 +43,7 @@ button {
     border-radius: 5px;
 }
 
-button:hover, #add:hover, #subtract:hover, #multiply:hover, #divide:hover, #clear:hover{
+button:hover, #add:hover, #subtract:hover, #multiply:hover, #divide:hover, #clear:hover, #backspace:hover{
     background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
     cursor: pointer;
 }
@@ -64,9 +64,6 @@ button:hover, #add:hover, #subtract:hover, #multiply:hover, #divide:hover, #clea
     background: #008d45
 }
 
-#clear {
-    background: #4e5955;
-}
 
 #buttons {
     height: 400px;
@@ -80,5 +77,14 @@ button:hover, #add:hover, #subtract:hover, #multiply:hover, #divide:hover, #clea
     grid-row-start: 1;
     grid-row-end: 2;
     grid-column-start: 1;
+    grid-column-end: 3;
+    background: #4e5955;
+}
+
+#backspace {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
     grid-column-end: 5;
+    background: #4e5955;
 }

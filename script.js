@@ -63,13 +63,16 @@ function pressButton () {
                 argument1 = undefined;
                 argument2 =undefined;
                 return populateDisplay(number);
-            } else if(button.id = 'decimal') {
+            } else if(button.id == 'decimal') {
                 if (number.includes('.')) {
 
                 } else {
                     number += '.';
                     return populateDisplay(number);
                 }
+            } else if(button.id == 'backspace'){
+                number = number.substr(0,number.length-1);
+                return populateDisplay(number);
             }
         })
     })
