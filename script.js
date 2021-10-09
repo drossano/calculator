@@ -26,8 +26,10 @@ function pressButton () {
     button.forEach((button) => {
         button.addEventListener('click', () => {
             if (button.className == 'number'){
-                number += button.id
-                return populateDisplay(number);
+                while (number.length < 8) {
+                    number += button.id
+                    return populateDisplay(number);
+                } 
             } else if (button.className == 'operator'){
                 if (operator == undefined){
                     if (argument1 == undefined){
