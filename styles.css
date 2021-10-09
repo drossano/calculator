@@ -3,25 +3,82 @@
     src: url(fonts/CursedTimerUlil-Aznm.ttf);
 }
 
+body {
+    height: 100%;
+    background: #b5b6e479;
+}
+
 #calculator {
     display: flex;
     flex-direction: column;
     width: 400px;
-    
+    height: 510px;
+    padding: 20px;
+    background: #a8aaaa;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -255px 0 0 -200px;
 }
 #display {
     font-family: cursedTimer;
+    color: #0f380f;
     height: 100px;
-    background: rgb(197, 236, 197);
+    background: #9bbc0f;
     font-size: 80px;
     text-align: right;
     line-height: 100px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+    color: white;
+    background: #3c3b3b;
+    border: 0;
+    border-radius: 5px;
+}
+
+button:hover, #add:hover, #subtract:hover, #multiply:hover, #divide:hover, #clear:hover{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
+    cursor: pointer;
+}
+
+#add {
+ background: #eb1a1d;
+}
+
+#subtract {
+    background: #fece15;
+}
+
+#multiply {
+    background: #0749b4;
+}
+
+#divide {
+    background: #008d45
+}
+
+#clear {
+    background: #4e5955;
 }
 
 #buttons {
     height: 400px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px
 }
 
+#clear {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
