@@ -48,9 +48,13 @@ function pressButton () {
                     number = "";  
                 }
             } else if (button.id == 'equal'){
+                if (operator != undefined) {    
                     let answer = operate(operator,argument1,number); 
                     argument1 = answer;
-                    return populateDisplay(answer);    
+                    return populateDisplay(answer);
+                } else {
+
+                }
             }
         })
     })
