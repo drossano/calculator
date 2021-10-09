@@ -1,6 +1,6 @@
 function operate (operator,argument1,argument2) {
-    argument1 = parseInt(argument1);
-    argument2 = parseInt(argument2);
+    argument1 = Number(argument1);
+    argument2 = Number(argument2);
     if (operator == 'add'){
         return add(argument1,argument2);
     }else if (operator == 'subtract') {
@@ -15,7 +15,7 @@ function operate (operator,argument1,argument2) {
 add = (argument1,argument2) =>argument1+argument2;
 subtract = (argument1,argument2) => argument1-argument2;
 multiply = (argument1,argument2) => argument1*argument2;
-divide = (argument1,argument2) => argument1/argument2;
+divide = (argument1,argument2) => Number(Math.round(argument1/argument2 + 'e6')+ 'e-6');
 
 function pressButton () {
     let number = ""
