@@ -15,7 +15,7 @@ function operate (operator,argument1,argument2) {
 add = (argument1,argument2) =>argument1+argument2;
 subtract = (argument1,argument2) => argument1-argument2;
 multiply = (argument1,argument2) => argument1*argument2;
-divide = (argument1,argument2) => Number(Math.round(argument1/argument2 + 'e6')+ 'e-6');
+divide = (argument1,argument2) => argument2 == 0 ? 'Nice try' : Number(Math.round(argument1/argument2 + 'e6')+ 'e-6');
 
 function pressButton () {
     let number = ""
