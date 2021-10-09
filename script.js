@@ -35,20 +35,13 @@ function pressButton () {
                     operator = button.id;
                     number = "";
                 } else {
-                    argument2 = number;
                     operator = button.id;
                     number = "";
                 }
             } else if (button.id == 'equal'){
-                if (argument2 == undefined){
                     let answer = operate(operator,argument1,number); //this result should become argument1
                     argument1 = answer;
-                    return populateDisplay(answer);
-                } else {
-                    let answer = operate(operator,argument1,argument2); //this result should become argument1
-                    argument1 = answer;
-                    return populateDisplay(answer); 
-                }
+                    return populateDisplay(answer);    
             }
         })
     })
