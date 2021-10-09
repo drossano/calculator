@@ -55,6 +55,12 @@ function pressButton () {
                 } else {
 
                 }
+            } else if(button.id == 'clear') {
+                number = ""
+                operator = undefined;
+                argument1 = undefined;
+                argument2 =undefined;
+                return populateDisplay(number);
             }
         })
     })
