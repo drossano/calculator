@@ -19,27 +19,34 @@ divide = (argument1,argument2) => argument1/argument2;
 
 function pressButton () {
     let number = ""
-    let operator = "";
+    let operator;
     let argument1;
     let argument2;
     const button = document.querySelectorAll('button');
     button.forEach((button) => {
         button.addEventListener('click', () => {
-            //Below runs when 
             if (button.className == 'number'){
                 number += button.id
                 return populateDisplay(number);
             } else if (button.className == 'operator'){
-                if (argument1 == undefined){
-                    argument1 = number;
-                    operator = button.id;
-                    number = "";
+                if (operator == undefined){
+                    if (argument1 == undefined){
+                        argument1 = number;
+                        operator = button.id;
+                        number = "";
+                    } else {
+                        operator = button.id;
+                        number = "";
+                    }
                 } else {
+                    let answer = operate(operator,argument1,number); 
+                    argument1 = answer;
+                    populateDisplay(answer);
                     operator = button.id;
-                    number = "";
+                    number = "";  
                 }
             } else if (button.id == 'equal'){
-                    let answer = operate(operator,argument1,number); //this result should become argument1
+                    let answer = operate(operator,argument1,number); 
                     argument1 = answer;
                     return populateDisplay(answer);    
             }
