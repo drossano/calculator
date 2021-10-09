@@ -61,6 +61,13 @@ function pressButton () {
                 argument1 = undefined;
                 argument2 =undefined;
                 return populateDisplay(number);
+            } else if(button.id = 'decimal') {
+                if (number.includes('.')) {
+
+                } else {
+                    number += '.';
+                    return populateDisplay(number);
+                }
             }
         })
     })
