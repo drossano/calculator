@@ -3,23 +3,36 @@
     src: url(fonts/CursedTimerUlil-Aznm.ttf);
 }
 
+@font-face {
+    font-family: superNintendo;
+    src: url(/fonts/SnesItalic-1G9Be.ttf);
+}
+
 body {
     height: 100%;
     background: #b5b6e479;
+}
+
+p{
+    font-family: superNintendo;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 50px;
+    margin: 0 0 10px 0;
 }
 
 #calculator {
     display: flex;
     flex-direction: column;
     width: 400px;
-    height: 510px;
+    height: 570px;
     padding: 20px;
     background: #a8aaaa;
     border-radius: 10px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -255px 0 0 -200px;
+    margin: -285px 0 0 -200px;
 }
 #display {
     font-family: cursedTimer;
