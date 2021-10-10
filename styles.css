@@ -13,7 +13,7 @@ body {
     background: #b5b6e479;
 }
 
-p{
+p {
     font-family: superNintendo;
     text-decoration: underline;
     text-align: center;
@@ -34,6 +34,7 @@ p{
     left: 50%;
     margin: -286px 0 0 -200px;
 }
+
 #display {
     font-family: cursedTimer;
     color: #0f380f;
@@ -56,12 +57,12 @@ button {
     border-radius: 5px;
 }
 
-button:hover, #add:hover, #subtract:hover, #multiply:hover, #divide:hover, #clear:hover, #backspace:hover{
+button:hover, #add:hover, #subtract:hover, #multiply:hover, #divide:hover, #clear:hover, #backspace:hover {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
     cursor: pointer;
 }
 
-button:active, #add:active, #subtract:active, #multiply:active, #divide:active, #clear:active, #backspace:active{
+button:active, #add:active, #subtract:active, #multiply:active, #divide:active, #clear:active, #backspace:active {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0 0);
     cursor: pointer;
 }

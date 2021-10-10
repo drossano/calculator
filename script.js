@@ -36,7 +36,8 @@ function multiply (argument1,argument2) {
         return product;
     }
     }
-function divide (argument1,argument2) {
+
+    function divide (argument1,argument2) {
     if (argument2 == 0) 
         {return 'Nice try';
     } else {
@@ -54,6 +55,7 @@ function divide (argument1,argument2) {
         }
     }
 }
+
 function pressButton () {
     let number = '0';
     let operator;
