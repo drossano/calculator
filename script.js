@@ -174,6 +174,16 @@ function pressButton () {
                 } else {
 
                 }
+            } else if(e.key == '.') {
+                if (number.includes('.')) {
+
+                } else {
+                    number += '.';
+                    return populateDisplay(number);
+                }
+            } else if(e.key == 'Backspace'){
+                number = number.substr(0,number.length-1);
+                return populateDisplay(number);
             }
         }
     }
