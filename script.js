@@ -23,6 +23,8 @@ function divide (argument1,argument2) {
         if (quotient.toString().length > 7) {
             if (quotient.toPrecision(7).toString().startsWith('0')) {
                 return quotient.toPrecision(6);
+            } else if (quotient.toPrecision(7).toString().includes('e')){
+                return quotient.toPrecision(4)
             } else {
                 return quotient.toPrecision(7);
             }
