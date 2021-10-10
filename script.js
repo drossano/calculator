@@ -21,7 +21,6 @@ function pressButton () {
     let number = ""
     let operator;
     let argument1;
-    let argument2;
     const button = document.querySelectorAll('button');
     button.forEach((button) => {
         button.addEventListener('click', () => {
@@ -61,7 +60,6 @@ function pressButton () {
                 number = ""
                 operator = undefined;
                 argument1 = undefined;
-                argument2 =undefined;
                 return populateDisplay(number);
             } else if(button.id == 'decimal') {
                 if (number.includes('.')) {
