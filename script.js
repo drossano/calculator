@@ -32,17 +32,14 @@ function divide (argument1,argument2) {
     }
 }
 function pressButton () {
-    let number = ""
+    let number = 0;
     let operator;
     let argument1;
     const button = document.querySelectorAll('button');
     button.forEach((button) => {
         button.addEventListener('click', () => {
             if (button.className == 'number'){
-                while (number.length < 8) {
-                    number += button.id;
-                    return populateDisplay(number);
-                }
+               number = pressNumberButton(number,button.id);
             } else if (button.className == 'operator'){
                 if (operator == undefined){
                     if (argument1 == undefined){
@@ -91,10 +88,7 @@ function pressButton () {
     document.addEventListener('keydown', pressKey)
     function pressKey(e) {
         if (e.key >= 0 && e.key <= 9) {
-            while (number.length < 8) {
-                number += e.key;
-                return populateDisplay(number);
-            }
+            number = pressNumberButton(number,e.key);
         } else {
             if (e.key == '+') {
                 if (operator == undefined){
@@ -194,4 +188,20 @@ function populateDisplay (number) {
     display.textContent = number;
 }
 
+function pressNumberButton(number,button) {
+    if (number == 0) {
+        number = button;
+        populateDisplay(number);
+        return number;
+    } else if (number.length < 8){
+        number += button;
+        populateDisplay(number);
+        return number;       
+    } else {
+        populateDisplay(number);
+        return number;  
+    }
+}
+
 pressButton();
+populateDisplay(0);
