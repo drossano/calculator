@@ -92,7 +92,7 @@ function pressButton () {
 }
 
 function pressClear(number, operator, argument1) {
-    number = "";
+    number = 0;
     operator = undefined;
     argument1 = undefined;
     return { number, operator, argument1 };
