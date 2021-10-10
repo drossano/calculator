@@ -12,9 +12,30 @@ function operate (operator,argument1,argument2) {
     }
 }
 
-add = (argument1,argument2) =>argument1+argument2;
-subtract = (argument1,argument2) => argument1-argument2;
-multiply = (argument1,argument2) => argument1*argument2;
+function add (argument1,argument2){
+    let sum = argument1+argument2
+    if (sum > 99999999){
+        return 99999999;
+    } else {
+        return sum;
+    }
+    }
+function subtract (argument1,argument2) {
+    let difference = argument1-argument2;
+    if (difference < -9999999){
+        return -9999999;
+    } else {
+        return difference;
+    }
+}
+function multiply (argument1,argument2) {
+    let product = argument1*argument2;
+    if (product > 99999999){
+        return 99999999;
+    } else {
+        return product;
+    }
+    }
 function divide (argument1,argument2) {
     if (argument2 == 0) 
         {return 'Nice try';
