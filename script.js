@@ -90,10 +90,80 @@ function pressButton () {
     })
     document.addEventListener('keydown', pressKey)
     function pressKey(e) {
-        if (e.code.includes('Digit')) {
+        if (e.key >= 0 && e.key <= 9) {
             while (number.length < 8) {
                 number += e.key;
                 return populateDisplay(number);
+            }
+        } else {
+            if (e.key == '+') {
+                if (operator == undefined){
+                    if (argument1 == undefined){
+                        argument1 = number;
+                        operator = 'add';
+                        number = "";
+                    } else {
+                        operator = 'add';
+                        number = "";
+                    }
+                } else {
+                    let answer = operate(operator,argument1,number); 
+                    argument1 = answer;
+                    populateDisplay(answer);
+                    operator = 'add';
+                    number = "";  
+                }
+            } else if (e.key == '-') {
+                if (operator == undefined){
+                    if (argument1 == undefined){
+                        argument1 = number;
+                        operator = 'subtract';
+                        number = "";
+                    } else {
+                        operator = 'subtract';
+                        number = "";
+                    }
+                } else {
+                    let answer = operate(operator,argument1,number); 
+                    argument1 = answer;
+                    populateDisplay(answer);
+                    operator = 'subtract';
+                    number = "";  
+                }
+            } else if (e.key == '*' ) {
+                if (operator == undefined){
+                    if (argument1 == undefined){
+                        argument1 = number;
+                        operator = 'multiply';
+                        number = "";
+                    } else {
+                        operator = 'multiply';
+                        number = "";
+                    }
+                } else {
+                    let answer = operate(operator,argument1,number); 
+                    argument1 = answer;
+                    populateDisplay(answer);
+                    operator = 'multiply';
+                    number = "";  
+                }
+            } else if (e.key == '/' ) {
+                if (operator == undefined){
+                    if (argument1 == undefined){
+                        argument1 = number;
+                        operator = 'divide';
+                        number = "";
+                    } else {
+                        operator = 'divide';
+                        number = "";
+                    }
+                } else {
+                    let answer = operate(operator,argument1,number); 
+                    argument1 = answer;
+                    populateDisplay(answer);
+                    operator = 'divide';
+                    number = "";  
+                }
             }
         }
     }
@@ -103,12 +173,5 @@ function populateDisplay (number) {
     const display = document.querySelector('#display');
     display.textContent = number;
 }
-
-/* function pressNumberButton(number, buttonId) {
-    while (number.length < 8) {
-        number += buttonId;
-        return populateDisplay(number);
-    }
-} */
 
 pressButton();
