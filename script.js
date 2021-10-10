@@ -35,6 +35,7 @@ function pressButton () {
     let number = 0;
     let operator;
     let argument1;
+    let answer;
     const button = document.querySelectorAll('button');
     button.forEach((button) => {
         button.addEventListener('click', () => {
@@ -43,19 +44,9 @@ function pressButton () {
             } else if (button.className == 'operator'){
                 ({ operator, argument1, number } = pressOperatorButton(operator, argument1, number, button.id));
             } else if (button.id == 'equal'){
-                if (operator != undefined) {    
-                    let answer = operate(operator,argument1,number); 
-                    argument1 = answer;
-                    number = answer;
-                    operator = undefined;
-                    return populateDisplay(answer);
-                } else {
-
-                }
+                pressEquals (operator, argument1, number);
             } else if(button.id == 'clear') {
-                number = ""
-                operator = undefined;
-                argument1 = undefined;
+                ({ number, operator, argument1 } = pressClear(number, operator, argument1));
                 return populateDisplay(number);
             } else if(button.id == 'decimal') {
                 if (number.includes('.')) {
@@ -84,15 +75,7 @@ function pressButton () {
             } else if (e.key == '/' ) {
                 ({ operator, argument1, number } = pressOperatorButton(operator, argument1, number, 'divide'));
             } else if (e.key == '=' || e.key == 'Enter'){
-                if (operator != undefined) {    
-                    let answer = operate(operator,argument1,number); 
-                    argument1 = answer;
-                    number = answer;
-                    operator = undefined;
-                    return populateDisplay(answer);
-                } else {
-
-                }
+                pressEquals (operator, argument1, number);
             } else if(e.key == '.') {
                 if (number.includes('.')) {
 
@@ -106,6 +89,13 @@ function pressButton () {
             }
         }
     }
+}
+
+function pressClear(number, operator, argument1) {
+    number = "";
+    operator = undefined;
+    argument1 = undefined;
+    return { number, operator, argument1 };
 }
 
 function pressOperatorButton(operator, argument1, number, button) {
@@ -145,6 +135,18 @@ function pressNumberButton(number,button) {
     } else {
         populateDisplay(number);
         return number;  
+    }
+}
+
+function pressEquals (operator, argument1, number) {
+    if (operator != undefined) {    
+        answer = operate(operator,argument1,number); 
+        argument1 = answer;
+        number = answer;
+        operator = undefined;
+        return populateDisplay(answer);
+    } else {
+
     }
 }
 
