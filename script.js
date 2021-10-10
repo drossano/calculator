@@ -32,7 +32,7 @@ function divide (argument1,argument2) {
     }
 }
 function pressButton () {
-    let number = 0;
+    let number = '0';
     let operator;
     let argument1;
     let answer;
@@ -49,12 +49,7 @@ function pressButton () {
                 ({ number, operator, argument1 } = pressClear(number, operator, argument1));
                 return populateDisplay(number);
             } else if(button.id == 'decimal') {
-                if (number.includes('.')) {
-
-                } else {
-                    number += '.';
-                    return populateDisplay(number);
-                }
+                number = pressDecimal(number);
             } else if(button.id == 'backspace'){
                 number = number.substr(0,number.length-1);
                 return populateDisplay(number);
@@ -77,12 +72,7 @@ function pressButton () {
             } else if (e.key == '=' || e.key == 'Enter'){
                 pressEquals (operator, argument1, number);
             } else if(e.key == '.') {
-                if (number.includes('.')) {
-
-                } else {
-                    number += '.';
-                    return populateDisplay(number);
-                }
+               number = pressDecimal(number);
             } else if(e.key == 'Backspace'){
                 number = number.substr(0,number.length-1);
                 return populateDisplay(number);
@@ -91,11 +81,20 @@ function pressButton () {
     }
 }
 
-function pressClear(number, operator, argument1) {
-    number = 0;
-    operator = undefined;
-    argument1 = undefined;
-    return { number, operator, argument1 };
+function pressNumberButton(number,button) {
+    if (number == '0') {
+        number = button;
+        populateDisplay(number);
+        return number;
+    } else if (number.length < 8){
+        number += button;
+        populateDisplay(number);
+        console.log(typeof number);
+        return number;       
+    } else {
+        populateDisplay(number);
+        return number;  
+    }
 }
 
 function pressOperatorButton(operator, argument1, number, button) {
@@ -118,26 +117,6 @@ function pressOperatorButton(operator, argument1, number, button) {
     return { operator, argument1, number };
 }
 
-function populateDisplay (number) {
-    const display = document.querySelector('#display');
-    display.textContent = number;
-}
-
-function pressNumberButton(number,button) {
-    if (number == 0) {
-        number = button;
-        populateDisplay(number);
-        return number;
-    } else if (number.length < 8){
-        number += button;
-        populateDisplay(number);
-        return number;       
-    } else {
-        populateDisplay(number);
-        return number;  
-    }
-}
-
 function pressEquals (operator, argument1, number) {
     if (operator != undefined) {    
         answer = operate(operator,argument1,number); 
@@ -148,6 +127,28 @@ function pressEquals (operator, argument1, number) {
     } else {
 
     }
+}
+
+function pressClear(number, operator, argument1) {
+    number = 0;
+    operator = undefined;
+    argument1 = undefined;
+    return { number, operator, argument1 };
+}
+
+function pressDecimal(number) {
+    if (number.includes('.')) {
+        return number;
+    } else {
+        number += '.';
+        populateDisplay(number);
+        return number;
+    }
+}
+
+function populateDisplay (number) {
+    const display = document.querySelector('#display');
+    display.textContent = number;
 }
 
 pressButton();
