@@ -40,9 +40,9 @@ function pressButton () {
         button.addEventListener('click', () => {
             if (button.className == 'number'){
                 while (number.length < 8) {
-                    number += button.id
+                    number += button.id;
                     return populateDisplay(number);
-                } 
+                }
             } else if (button.className == 'operator'){
                 if (operator == undefined){
                     if (argument1 == undefined){
@@ -88,11 +88,27 @@ function pressButton () {
             }
         })
     })
+    document.addEventListener('keydown', pressKey)
+    function pressKey(e) {
+        if (e.code.includes('Digit')) {
+            while (number.length < 8) {
+                number += e.key;
+                return populateDisplay(number);
+            }
+        }
+    }
 }
 
 function populateDisplay (number) {
     const display = document.querySelector('#display');
     display.textContent = number;
 }
+
+/* function pressNumberButton(number, buttonId) {
+    while (number.length < 8) {
+        number += buttonId;
+        return populateDisplay(number);
+    }
+} */
 
 pressButton();
