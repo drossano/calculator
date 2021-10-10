@@ -164,6 +164,16 @@ function pressButton () {
                     operator = 'divide';
                     number = "";  
                 }
+            } else if (e.key == '=' || e.key == 'Enter'){
+                if (operator != undefined) {    
+                    let answer = operate(operator,argument1,number); 
+                    argument1 = answer;
+                    number = answer;
+                    operator = undefined;
+                    return populateDisplay(answer);
+                } else {
+
+                }
             }
         }
     }
