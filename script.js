@@ -41,22 +41,7 @@ function pressButton () {
             if (button.className == 'number'){
                number = pressNumberButton(number,button.id);
             } else if (button.className == 'operator'){
-                if (operator == undefined){
-                    if (argument1 == undefined){
-                        argument1 = number;
-                        operator = button.id;
-                        number = "";
-                    } else {
-                        operator = button.id;
-                        number = "";
-                    }
-                } else {
-                    let answer = operate(operator,argument1,number); 
-                    argument1 = answer;
-                    populateDisplay(answer);
-                    operator = button.id;
-                    number = "";  
-                }
+                ({ operator, argument1, number } = pressOperatorButton(operator, argument1, number, button.id));
             } else if (button.id == 'equal'){
                 if (operator != undefined) {    
                     let answer = operate(operator,argument1,number); 
@@ -91,73 +76,13 @@ function pressButton () {
             number = pressNumberButton(number,e.key);
         } else {
             if (e.key == '+') {
-                if (operator == undefined){
-                    if (argument1 == undefined){
-                        argument1 = number;
-                        operator = 'add';
-                        number = "";
-                    } else {
-                        operator = 'add';
-                        number = "";
-                    }
-                } else {
-                    let answer = operate(operator,argument1,number); 
-                    argument1 = answer;
-                    populateDisplay(answer);
-                    operator = 'add';
-                    number = "";  
-                }
+                ({ operator, argument1, number } = pressOperatorButton(operator, argument1, number, 'add'));
             } else if (e.key == '-') {
-                if (operator == undefined){
-                    if (argument1 == undefined){
-                        argument1 = number;
-                        operator = 'subtract';
-                        number = "";
-                    } else {
-                        operator = 'subtract';
-                        number = "";
-                    }
-                } else {
-                    let answer = operate(operator,argument1,number); 
-                    argument1 = answer;
-                    populateDisplay(answer);
-                    operator = 'subtract';
-                    number = "";  
-                }
+                ({ operator, argument1, number } = pressOperatorButton(operator, argument1, number, 'subtract'));
             } else if (e.key == '*' ) {
-                if (operator == undefined){
-                    if (argument1 == undefined){
-                        argument1 = number;
-                        operator = 'multiply';
-                        number = "";
-                    } else {
-                        operator = 'multiply';
-                        number = "";
-                    }
-                } else {
-                    let answer = operate(operator,argument1,number); 
-                    argument1 = answer;
-                    populateDisplay(answer);
-                    operator = 'multiply';
-                    number = "";  
-                }
+                ({ operator, argument1, number } = pressOperatorButton(operator, argument1, number, 'multiply'));
             } else if (e.key == '/' ) {
-                if (operator == undefined){
-                    if (argument1 == undefined){
-                        argument1 = number;
-                        operator = 'divide';
-                        number = "";
-                    } else {
-                        operator = 'divide';
-                        number = "";
-                    }
-                } else {
-                    let answer = operate(operator,argument1,number); 
-                    argument1 = answer;
-                    populateDisplay(answer);
-                    operator = 'divide';
-                    number = "";  
-                }
+                ({ operator, argument1, number } = pressOperatorButton(operator, argument1, number, 'divide'));
             } else if (e.key == '=' || e.key == 'Enter'){
                 if (operator != undefined) {    
                     let answer = operate(operator,argument1,number); 
@@ -181,6 +106,26 @@ function pressButton () {
             }
         }
     }
+}
+
+function pressOperatorButton(operator, argument1, number, button) {
+    if (operator == undefined) {
+        if (argument1 == undefined) {
+            argument1 = number;
+            operator = button;
+            number = "";
+        } else {
+            operator = button
+            number = "";
+        }
+    } else {
+        let answer = operate(operator, argument1, number);
+        argument1 = answer;
+        populateDisplay(answer);
+        operator = button;
+        number = "";
+    }
+    return { operator, argument1, number };
 }
 
 function populateDisplay (number) {
