@@ -51,8 +51,7 @@ function pressButton () {
             } else if(button.id == 'decimal') {
                 number = pressDecimal(number);
             } else if(button.id == 'backspace'){
-                number = number.substr(0,number.length-1);
-                return populateDisplay(number);
+                number = pressBackspace (number);
             }
         })
     })
@@ -74,8 +73,7 @@ function pressButton () {
             } else if(e.key == '.') {
                number = pressDecimal(number);
             } else if(e.key == 'Backspace'){
-                number = number.substr(0,number.length-1);
-                return populateDisplay(number);
+                number = pressBackspace (number);
             }
         }
     }
@@ -144,6 +142,12 @@ function pressDecimal(number) {
         populateDisplay(number);
         return number;
     }
+}
+
+function pressBackspace (number) {
+    number = number.substr(0,number.length-1);
+    populateDisplay(number);
+    return number;
 }
 
 function populateDisplay (number) {
