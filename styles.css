@@ -20,6 +20,25 @@ p {
     font-size: 50px;
     margin: 0 0 10px 0;
 }
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.footer p {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #4e5955;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
 
 #calculator {
     display: flex;
