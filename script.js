@@ -14,24 +14,27 @@ function operate (operator,stnNum1,strNum2) {
 
 function add (addend1,addend2){
     let sum = addend1+addend2
-    if (sum > 99999999){
-        return 99999999;
+    const MAX_NUM = 99999999;
+    if (sum > MAX_NUM){
+        return MAX_NUM;
     } else {
         return sum;
     }
     }
 function subtract (minuend,subtrahend) {
     let difference = minuend-subtrahend;
-    if (difference < -9999999){
-        return -9999999;
+    const MIN_NUM = -9999999
+    if (difference < MIN_NUM){
+        return MIN_NUM;
     } else {
         return difference;
     }
 }
 function multiply (multiplicand,multiplier) {
     let product = multiplicand*multiplier;
-    if (product > 99999999){
-        return 99999999;
+    const MAX_NUM = 99999999;
+    if (product > MAX_NUM){
+        return MAX_NUM;
     } else {
         return product;
     }
