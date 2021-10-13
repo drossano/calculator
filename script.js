@@ -12,24 +12,24 @@ function operate (operator,stnNum1,strNum2) {
     }
 }
 
-function add (argument1,argument2){
-    let sum = argument1+argument2
+function add (addend1,addend2){
+    let sum = addend1+addend2
     if (sum > 99999999){
         return 99999999;
     } else {
         return sum;
     }
     }
-function subtract (argument1,argument2) {
-    let difference = argument1-argument2;
+function subtract (minuend,subtrahend) {
+    let difference = minuend-subtrahend;
     if (difference < -9999999){
         return -9999999;
     } else {
         return difference;
     }
 }
-function multiply (argument1,argument2) {
-    let product = argument1*argument2;
+function multiply (multiplicand,multiplier) {
+    let product = multiplicand*multiplier;
     if (product > 99999999){
         return 99999999;
     } else {
@@ -37,11 +37,11 @@ function multiply (argument1,argument2) {
     }
     }
 
-    function divide (argument1,argument2) {
-    if (argument2 == 0) 
+    function divide (dividend,divisor) {
+    if (divisor == 0) 
         {return 'Nice try';
     } else {
-        let quotient = (argument1/argument2);
+        let quotient = (dividend/divisor);
         if (quotient.toString().length > 7) {
             if (quotient.toPrecision(7).toString().startsWith('0')) {
                 return quotient.toPrecision(6);
