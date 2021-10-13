@@ -1,14 +1,14 @@
-function operate (operator,argument1,argument2) {
-    argument1 = Number(argument1);
-    argument2 = Number(argument2);
+function operate (operator,stnNum1,strNum2) {
+    const Num1 = Number(stnNum1);
+    const Num2 = Number(strNum2);
     if (operator == 'add'){
-        return add(argument1,argument2);
+        return add(Num1,Num2);
     }else if (operator == 'subtract') {
-        return subtract(argument1,argument2);
+        return subtract(Num1,Num2);
     } else if (operator == 'multiply') {
-        return multiply(argument1,argument2);
+        return multiply(Num1,Num2);
     } else if (operator == 'divide') {
-        return divide(argument1,argument2);
+        return divide(Num1,Num2);
     }
 }
 
